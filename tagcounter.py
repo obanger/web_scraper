@@ -1,7 +1,6 @@
 import click
-
-from GetTags import TagsGetter
-from ReadTags import TagsReader
+from tags_getter_and_reader.get_tags import TagsGetter
+from tags_getter_and_reader.read_tags import TagsReader
 
 
 @click.command()

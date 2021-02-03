@@ -1,6 +1,6 @@
-from SaveResults.saveResults import SaveTags
-from getPage.PrepareDataBeforeUnpickle import PrepareDataBeforeUnpickle
-from getPage.Unpickler import Unpickler
+from save_results.save_results import SaveTags
+from get_page.prepare_data_before_unpickle import PrepareDataBeforeUnpickle
+from get_page.unpickler import Unpickler
 
 
 class TagsReader:

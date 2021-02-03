@@ -1,10 +1,10 @@
-from SaveResults.saveResults import SaveTags
-from getPage.PageDownloader import PageDownloader
-from getPage.Pickler import Pickler
-from getPage.PrepareDataBeforeSave import PrepareDataBeforeSave
-from getPage.PrepareDataBeforeUnpickle import PrepareDataBeforeUnpickle
-from getPage.Scraper import Scraper
-from getPage.Unpickler import Unpickler
+from save_results.save_results import SaveTags
+from get_page.page_downloader import PageDownloader
+from get_page.pickler import Pickler
+from get_page.prepare_data_before_save import PrepareDataBeforeSave
+from get_page.prepare_data_before_unpickle import PrepareDataBeforeUnpickle
+from get_page.scraper import Scraper
+from get_page.unpickler import Unpickler
 
 
 class TagsGetter:
