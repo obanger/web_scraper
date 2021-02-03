@@ -13,7 +13,8 @@ website_url as url,
 date as date of execution,  
 dict with tags as dict pickled to blob format)  
 and printing results on console  
-- Call with combination of url and --view will provide only printing results received from data base on console  
+- Call with combination of url and --view will provide only printing results received from data base on console    
+
 **To run web_scraper:**
  - Clone repository:  
  ``` $ git clone git@github.com:obanger/web_scraper.git``` into your working directory
