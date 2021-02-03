@@ -14,4 +14,7 @@ class TagsReader:
         to_unpickle = PrepareDataBeforeUnpickle(row).get_pickled_tags_dict()
         unpickled_dict = Unpickler(to_unpickle).unpickle()
         print(unpickled_dict)
-        return unpickled_dict
+        if unpickled_dict is None:
+            print("Got an error during execution, seems like this web site not scraped yet")
+        else:
+            return unpickled_dict

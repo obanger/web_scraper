@@ -6,5 +6,10 @@ class PageDownloader:
         self.url = url
 
     def get_html(self):
-        page = requests.get(self.url).text
-        return page
+        try:
+            page = requests.get(self.url).text
+            return page
+        except requests.exceptions.RequestException as e:
+            raise SystemExit(e)
+
+

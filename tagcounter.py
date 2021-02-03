@@ -12,6 +12,8 @@ def cli(web_site_name, get, view):
         print("web site URL is required")
     elif web_site_name is not None and get is True and view is True:
         print("Only one option is available")
+    elif web_site_name and get is False and view is False:
+        print("At least one parameter is required")
     elif get is True and view is False:
         print("Start scraper")
         TagsGetter(web_site_name).get_tags()

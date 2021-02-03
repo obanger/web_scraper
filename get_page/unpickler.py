@@ -7,6 +7,9 @@ class Unpickler:
         self.data = data
 
     def unpickle(self):
-        unpickled_data = pickle.loads(self.data)
-        return unpickled_data
+        try:
+            unpickled_data = pickle.loads(self.data)
+            return unpickled_data
+        except TypeError:
+            print("Type Error Raised")
 

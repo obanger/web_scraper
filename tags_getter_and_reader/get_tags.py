@@ -17,7 +17,6 @@ class TagsGetter:
         pickled_dict = Pickler(scrap).pickle()
         prepared_data = PrepareDataBeforeSave(self.url, pickled_dict).get_row()
         print(prepared_data)
-        # test = DBConnection()
         SaveTags.create_table()
         SaveTags.save_results(prepared_data)
         row = SaveTags.fetch_results(self.url)
@@ -25,6 +24,8 @@ class TagsGetter:
         to_unpickle = PrepareDataBeforeUnpickle(row).get_pickled_tags_dict()
         unpickled_dict = Unpickler(to_unpickle).unpickle()
         print(unpickled_dict)
+        if unpickled_dict is None:
+            print("Seems like ")
         return unpickled_dict
 
 

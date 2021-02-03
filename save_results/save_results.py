@@ -13,7 +13,6 @@ class SaveTags:
         row = cur.fetchall()
         print(row)
         if not row:
-
             conn = sqlite3.connect("web_scraper_db.sqlite")
             cur = conn.cursor()
             cur.execute('''
@@ -30,23 +29,34 @@ class SaveTags:
         else:
             print("Table already exists")
 
+
     @staticmethod
     def save_results(row):
-        conn = sqlite3.connect("web_scraper_db.sqlite")
-        sql = '''INSERT INTO web_scraper_data (website_name, website_url, check_date, tags_data) VALUES(?, ?, ?, ?);'''
-        cur = conn.cursor()
-        cur.execute(sql, row)
-        conn.commit()
-        print("Saved successful")
+        try:
+            conn = sqlite3.connect("web_scraper_db.sqlite")
+            sql = '''INSERT OR REPLACE INTO web_scraper_data (website_name, website_url, check_date, tags_data) 
+            VALUES(?, ?, ?, ?); '''
+            cur = conn.cursor()
+            cur.execute(sql, row)
+            conn.commit()
+            print("Saved successful")
+        except sqlite3.OperationalError:
+            print("Any SQL ERROR")
 
     @staticmethod
     def fetch_results(url):
-        conn = sqlite3.connect("web_scraper_db.sqlite")
-        sql = '''SELECT website_name, website_url, check_date, tags_data FROM web_scraper_data WHERE website_url = ?'''
-        cur = conn.cursor()
-        cur.execute(sql, (url,))
-        conn.commit()
-        row = cur.fetchall()
-        return row
-
+        try:
+            conn = sqlite3.connect("web_scraper_db.sqlite")
+            sql = '''SELECT website_name, website_url, check_date, tags_data FROM web_scraper_data WHERE website_url 
+            = ? '''
+            cur = conn.cursor()
+            cur.execute(sql, (url,))
+            conn.commit()
+            row = cur.fetchall()
+            if row is None:
+                print('Such website does not exits in DB')
+            else:
+                return row
+        except sqlite3.OperationalError:
+            print("sqlite exception raised")
 
