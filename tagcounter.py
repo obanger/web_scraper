@@ -24,3 +24,6 @@ def cli(web_site_name, get, view):
 
 if __name__ == '__main__':
     cli()
+
+
+#addedcomment
