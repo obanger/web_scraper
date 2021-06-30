@@ -24,12 +24,3 @@ def cli(web_site_name, get, view):
 
 if __name__ == '__main__':
     cli()
-
-
-#addedcomment
-#addedanotheronecomment
-# test
-# comment1
-# comment2
-# comment3
-# comment 4
